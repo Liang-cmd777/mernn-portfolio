@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - nginx
+
+  frontend:
+    build: ./frontend
+    expose:
+      - "3000"  # only expose to nginx proxy
+    environment:
+      - VIRTUAL_HOST=soulsportfolio.duckdns.org
+      - LETSENCRYPT_HOST=soulsportfolio.duckdns.org
+      - LETSENCRYPT_EMAIL=sdarksoul99@gmail.com
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - nginx
+
+networks:
+  nginx:
+    external: false
