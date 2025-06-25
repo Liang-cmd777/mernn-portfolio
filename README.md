@@ -8,4 +8,7 @@ It also utilizes docker for containers orchestration
 - there is one docker file for the frontend and one for the backend
 - the docker-compose.yml file in the root folder orchestrate both of them
 
-- To lauch the backend and the backend, run " docker-compuse build 
+- To lauch the backend and the backend, run " docker-compuse build
+
+
+The Dev stack used was MERN but you can adapt it to your needs since the code is modular
